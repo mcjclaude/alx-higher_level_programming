@@ -1,75 +1,55 @@
 #!/usr/bin/python3
+"""Square module"""
+
+
 class Square:
-    """Square Class
-
-    A Square Class
-
-    """
+    """Defines a square"""
 
     def __init__(self, size=0):
-        """__init__
+        """Constractor
 
-        The __init__ method initializes the size value of the square.
-
-        Attributes:
-            size (:obj:`int`, optional): The size of the square.
-
-        Raises:
-            TypeError: If `size` type is not `int`.
-
-            ValueError: If `size` is less than `0`.
-
+        Args:
+            size: length of the side of the square
         """
-
-        if type(size) is not int:
-            raise TypeError('size must be an integer')
-
-        if size < 0:
-            raise ValueError('size must be >= 0')
-
-        self.size = size
+        self.__size = size
 
     @property
     def size(self):
+        """Returns the size
+        """
         return self.__size
 
     @size.setter
-    def size(self, size):
-        """__init__
+    def size(self, new_size):
+        """Property setter for size
 
-        The size setter method update the size value of the square.
+        Args:
+            new_size: the size to set
 
-        Attributes:
-            size (:obj:`int`): The new size of the square.
-
-        Raises:
-            TypeError: If `size` type is not `int`.
-
-            ValueError: If `size` is less than `0`.
+        Raise:
+            TypeError: if size not integer
+            ValueError: if size less than 0
 
         """
-
-        if type(size) is not int:
+        if not isinstance(new_size, int):
             raise TypeError('size must be an integer')
-
-        if size < 0:
+        if new_size < 0:
             raise ValueError('size must be >= 0')
-
-        self.__size = size
+        self.__size = new_size
 
     def area(self):
-        """Returns the current square area
+        """Calculate the area of the square
 
+        Return: area of the square
         """
-        return self.__size ** 2
+        return self.__size**2
 
     def my_print(self):
-        if self.__size == 0:
+        """Prints the square
+        """
+        for i in range(self.__size):
+            for i in range(self.__size):
+                print("#", end="")
             print()
-            return None
-
-        for i in range(1, self.area() + 1):
-            print('#', end='')
-
-            if i % self.__size == 0 and i > 0:
-                print()
+        if self.__size is 0:
+            print()
