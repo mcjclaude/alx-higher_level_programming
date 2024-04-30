@@ -1,36 +1,29 @@
 #!/usr/bin/python3
+"""Square module."""
+
+
 class Square:
-    """Square Class
-
-    A Square Class
-
-    """
+    """Define a square"""
 
     def __init__(self, size=0):
-        """__init__
+        """Constractor.
 
-        The __init__ method initializes the size value of the square.
+        Args:
+            size: length of the side of the square
 
-        Attributes:
-            size (:obj:`int`, optional): The size of the square.
-
-        Raises:
-            TypeError: If `size` type is not `int`.
-
-            ValueError: If `size` is less than `0`.
-
-        """
-
-        if type(size) is not int:
+        Raise:
+            TypeError: if size is not an integer
+            ValueError: if size is less than zero
+            """
+        if not isinstance(size, int):
             raise TypeError('size must be an integer')
-
         if size < 0:
             raise ValueError('size must be >= 0')
-
         self.__size = size
 
     def area(self):
-        """Returns the current square area
+        """Area of the square
 
+        Return: area of the square
         """
-        return self.__size ** 2
+        return self.__size**2
